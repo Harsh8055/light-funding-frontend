@@ -9,7 +9,7 @@ import { ethers } from "ethers"
 import useSWR from "swr"
 
 const navigation = [
-  { name: 'About', href: '#', current: true },
+  { name: 'About', href: 'about', current: true },
   { name: 'Features', href: '#', current: false },
   { name: 'Community', href: '#', current: false },
   { name: 'Team', href: '#', current: false },
@@ -113,7 +113,7 @@ export default function Navbar() {
 								))}
 							</div>
 						</div>
-						{isAuthenticated ? <div>Hello</div> : <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400" onClick={login}>Connect Wallet</div>}
+						{isAuthenticated ? <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400">Connected</div> : <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400" onClick={login}>Connect Wallet</div>}
 					</div>
 					{/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 						<button
