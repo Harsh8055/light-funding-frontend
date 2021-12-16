@@ -125,7 +125,7 @@ export default function Project() {
 
 		}
 		catch (e) {
-			alert(e);
+			alert(e.message);
 		}
 
 	}
@@ -269,6 +269,11 @@ export default function Project() {
 							<div className="mt-4">
 								<ul role="list" className="pl-4 list-disc text-sm space-y-2">
 									<li className="">
+										{project.state == 0 && <span className="text-inter">Status :- Fundraising</span>}
+										{project.state == 1 && <span className="text-inter">Status :- Expired</span>}
+										{project.state == 2 &&<span className="text-inter">Status :- Succesful</span>}
+									</li>
+									<li className="">
 										<span className="text-inter">Raised {(Number(project.currentBalance)/1000000000000000000).toFixed(2)} MATIC</span>
 									</li>
 									<li className="">
@@ -292,7 +297,8 @@ export default function Project() {
 								</button>
 								<br />
 								<br />
-								<br />
+								{project.state == 1 && <a className='bg-gray-900 text-white  px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400 hover:text-black' onClick={getRefund}> Get Refund</a>}
+		
 								<button onClick={updateStatus} className='mt-4'>
 									<a className='bg-gray-900 text-white ml-5  px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400 hover:text-black'>update status</a>
 								</button>
