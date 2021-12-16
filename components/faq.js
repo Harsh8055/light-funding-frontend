@@ -5,11 +5,11 @@ export default function FAQ() {
 	return (
 	  <div className="w-full h-screen px-4 pt-16 flex justify-start items-center flex-col">
 		<h1 className='text-4xl font-bold mb-5'>FAQ</h1>
-		<div className="w-full max-w-md p-2 mx-auto bg-white rounded-2xl">
+		<div className="w-full max-w-xl p-2 mx-auto bg-white rounded-2xl">
 		  <Disclosure>
 			{({ open }) => (
 			  <>
-				<Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+				<Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
 				  <span>What is your refund policy?</span>
 				  <ChevronUpIcon
 					className={`${
@@ -17,7 +17,7 @@ export default function FAQ() {
 					} w-5 h-5 text-purple-500`}
 				  />
 				</Disclosure.Button>
-				<Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+				<Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-gray-500">
 				  If you're unhappy with your purchase for any reason, email us
 				  within 90 days and we'll refund you in full, no questions asked.
 				</Disclosure.Panel>
@@ -27,7 +27,7 @@ export default function FAQ() {
 		  <Disclosure as="div" className="mt-2">
 			{({ open }) => (
 			  <>
-				<Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+				<Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg  font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
 				  <span>Do you offer technical support?</span>
 				  <ChevronUpIcon
 					className={`${
@@ -35,7 +35,7 @@ export default function FAQ() {
 					} w-5 h-5 text-purple-500`}
 				  />
 				</Disclosure.Button>
-				<Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+				<Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-gray-500">
 				  No.
 				</Disclosure.Panel>
 			  </>

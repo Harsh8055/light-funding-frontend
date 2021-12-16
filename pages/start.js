@@ -119,35 +119,58 @@ export default function Home() {
 						<a onClick={() => setIsOpen(true)} className='bg-gray-900 text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-gray-400 hover:text-black mr-12'>Start a Project</a>
 					</Link>
 				</div>
-				<div className="w-full h-full bg-gray-400 flex justify-start items-center flex-col">
+				<div className="w-full h-full flex justify-start items-center flex-col">
 					<h1 className='text-4xl font-bold mb-10 mt-10'>Your Projects</h1>
-					<div className="grid grid-cols-3 grid-rows-2 gap-10 m-10">
+					<div className="max-w-5xl mx-auto px-12 sm:px-6 lg:px-4 py-12 md:p-4">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 						{ allProjects.filter((ele)=> ele.creator.toLowerCase() == account[0].toLowerCase()).map(project => (
-							<div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm" id={project.id}>
-							<Link href={`/project/${Number(project.projectId)}`} id={project.projectId}>
-									<img src={project.img} alt="" />
-							</Link>
-								<div class="p-4">
-									<a href="#">
-										<h5 className='font-bold text-lg'>{project.title}</h5>
-									</a>
-									{project.state == 0 && <p className=''> Current Status :- Fundrasing</p>}
-									{project.state == 1 && <p className=''> Current Status :- Expired</p>}
-									{project.state == 2 && <p className=''> Current Status :- Succesfull</p>}
-									
-									<br />
-									<p>{project.description}</p>
-									<div className="grid grid-cols-2 grid-rows-2 text-sm mt-5">
-										<p>{Number(ethers.utils.formatEther(project.currentBalance)).toFixed(6)} ETH Raised</p>
-										<br />
-										<p>{Number(ethers.utils.formatEther(project.amountGoal)).toFixed(6)} ETH Goal</p>
-										<br />
-										{Number(project.amountGoal) > (Number(project.currentBalance)) && <p>{Number(project.amountGoal)/1000000000000000000 - Number(project.currentBalance)/1000000000000000000} ETH Needed</p> }
-							{Number(project.amountGoal) < (Number(project.currentBalance)) && <p> 0 ETH Needed</p> }
+							<Link  href={`/project/${Number(project.projectId)}`} key={project.projectId}>
+									<div class="w-full overflow-hidden flex flex-col justify-center items-center">
+										<div class="max-w-md h-full w-full bg-gray-900 shadow-lg rounded-xl p-5">
+											<div class="flex flex-col">
+												<div class="">
+													<div class="relative h-62 w-full mb-3">
+														<img src={project.img} alt="Just a flower" class=" w-full  object-fill rounded-2xl" style={{ height:"250px" }} />
+													</div>
+													<div class="flex-auto justify-evenly">
+														<div class="flex flex-wrap ">
+															<div class="flex items-center w-full justify-between min-w-0 ">
+																<h2 class="text- mr-auto cursor-pointer text-gray-200 hover:text-purple-500 truncate ">{project.description}</h2>
+																<div class="flex items-center bg-green-400 text-white text-xs px-2 py-1 ml-3 rounded-lg">
+																	{project.state == 0 && "Raising"}
+																	{project.state == 1 && "Expired"}
+																	{project.state == 2 && "Successful"}
+																</div>
+															</div>
+														</div>
+														<div class="text-lg text-white font-semibold mt-1 mb-4">
+															{project.title}
+														</div>
+														<div class="flex justify-between item-center text-white mb-4">
+															<div class="flex items-center gap-10">
+																<p>Raised {utils.formatEther(project.currentBalance)}</p>
+																<p>Goal {utils.formatEther(project.amountGoal)}</p>
+																{Number(project.amountGoal) > (Number(project.currentBalance)) && <p>Needed {(Number(project.amountGoal)/1000000000000000000 - Number(project.currentBalance)/1000000000000000000).toFixed(3)}</p> }
+																{Number(project.amountGoal) < (Number(project.currentBalance)) && <p> 0 MATIC Needed</p>}
+															</div>
+														</div>
+												
+														<div class="flex space-x-2 text-sm font-medium justify-start">
+															<button class="transition ease-in duration-100 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-700 ">
+																<span>Fund Me</span>
+															</button>
+															{project.category && <button class="transition ease-in duration-100 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-green-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-green-600 ">
+																<span>{project.category}</span>
+															</button>}
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
+								</Link>
 						))}
+					</div>
 					</div>
 				</div>
 				<FAQ></FAQ>

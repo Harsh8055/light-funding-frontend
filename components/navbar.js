@@ -13,7 +13,6 @@ const navigation = [
   { name: 'Features', href: '#', current: false },
   { name: 'Community', href: '#', current: false },
   { name: 'Team', href: '#', current: false },
-  { name: 'FAQ', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -89,7 +88,8 @@ export default function Navbar() {
 					<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 						<div className="flex-shrink-0 flex items-center">
 							<Link href='/'>
-								<h1 className="font-inter text-black px-3 rounded-md text-xl cursor-pointer  font-semibold"> Light </h1>
+								<h1 className=" text-black px-3 rounded-md text-xl cursor-pointer font-logo "> <img src="https://gateway.pinata.cloud/ipfs/QmVEVCTC4StrJWTPPA1wJfLgZMkC9p7fpSspHUtmprncyi" width={90} alt="" /> </h1>
+								{/* <h1 className="font-inter text-black px-3 rounded-md text-xl cursor-pointer font-logo font-semibold"> Light  </h1> */}
 							</Link>
 						</div>
 					</div>

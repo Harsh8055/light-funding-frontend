@@ -2,6 +2,7 @@ import Head from "next/head"
 import { useState } from "react"
 import Navbar from "../components/navbar"
 import MyModal from "../components/modal"
+import FAQ from "../components/faq"
 // How it works
 // How to Start a Project
 // How to fund a project
@@ -14,16 +15,16 @@ export default function About() {
 	const [isWithdrawOpen, setIsWithdrawOpen] = useState(false)
 
 	return (
-		<>
+		<div className="bg">
 			<Head>
 				<title>About - Light</title>
 			</Head>
 			<Navbar />
-			<section class="bg relative pt-16 bg-blueGray-50">
+			<section class=" relative pt-16 bg-blueGray-50">
 				<div class="container mx-auto">
 				<div class="flex flex-wrap items-center">
 					<div class="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78">
-					<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg">
+					<div class="relative flex flex-col min-w-0 break-words glass w-full mb-6 shadow-lg rounded-xl">
 						<img alt="..." src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80" class="w-full align-middle rounded-t-lg" />
 						<blockquote class="relative p-8 mb-4">
 							<h4 class="text-xl font-bold">
@@ -39,7 +40,7 @@ export default function About() {
 					<div class="w-full md:w-6/12 px-4">
 					<div class="flex flex-wrap">
 						<div class="w-full md:w-6/12 px-4">
-						<div class="relative flex flex-col mt-4 cursor-pointer" onClick={() => setIsWorksOpen(true)}>
+						<div class="relative glass rounded-xl flex flex-col mt-4 cursor-pointer" onClick={() => setIsWorksOpen(true)}>
 							<div class="px-4 py-5 flex-auto">
 								<div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
 									<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -54,7 +55,7 @@ export default function About() {
 								</p>
 							</div>
 						</div>
-						<div class="relative flex flex-col min-w-0 cursor-pointer" onClick={() => setIsFundOpen(true)}>
+						<div class="relative mt-4  flex rounded-xl glass flex-col min-w-0 cursor-pointer" onClick={() => setIsFundOpen(true)}>
 							<div class="px-4 py-5 flex-auto">
 							<div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
@@ -73,8 +74,8 @@ export default function About() {
 							</div>
 						</div>
 						</div>
-						<div class="w-full md:w-6/12 px-4 cursor-pointer" onClick={() => setIsStartOpen(true)}>
-						<div class="relative flex flex-col min-w-0 mt-4">
+						<div class="w-full  md:w-6/12 px-4 cursor-pointer" onClick={() => setIsStartOpen(true)}>
+						<div class="relative rounded-xl glass flex flex-col min-w-0 mt-4">
 							<div class="px-4 py-5 flex-auto">
 							<div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
 								<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -89,7 +90,7 @@ export default function About() {
 							</p>
 							</div>
 						</div>
-						<div class="relative flex flex-col min-w-0 cursor-pointer" onClick={() => setIsWithdrawOpen(true)}>
+						<div class="relative mt-4  rounded-xl glass flex flex-col min-w-0 cursor-pointer" onClick={() => setIsWithdrawOpen(true)}>
 							<div class="px-4 py-5 flex-auto">
 							<div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
 								<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -99,7 +100,7 @@ export default function About() {
 							</div>
 							<h6 class="text-xl mb-1 font-semibold">How to withdraw</h6>
 							<p class="mb-4 text-blueGray-500">
-								You can click on "Request Funds" in project's page and enter the amount and...
+								You can click on "Request Funds" in project's page and enter the...
 								<br />
 								Read More
 							</p>
@@ -111,6 +112,8 @@ export default function About() {
 				</div>
 				</div>
 			</section>
+
+			<FAQ></FAQ>
 
 			<MyModal isOpen={isWorksOpen} setIsOpen={setIsWorksOpen} title='How Light Works'>
 				You can connect your metamask wallet and can fund any project you like in MATIC or ETH, if you have a great idea then you can start a project and collect funding and start working on the next great thing
@@ -127,6 +130,6 @@ export default function About() {
 			<MyModal isOpen={isWithdrawOpen} setIsOpen={setIsWithdrawOpen} title='How to Withdraw funds'>
 			You can click on "Request Funds" in project's page and enter the amount and a voting will be conducted where investors could on whether or not you can use that amount
 			</MyModal>
-		</>
+			</div>
 	)
 }

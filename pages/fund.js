@@ -122,7 +122,7 @@ export default function Home() {
 																<h2 class="text- mr-auto cursor-pointer text-gray-200 hover:text-purple-500 truncate ">{project.description}</h2>
 																<div class="flex items-center bg-green-400 text-white text-xs px-2 py-1 ml-3 rounded-lg">
 																	{project.state == 0 && "Raising"}
-																	{project.state == 1 && "Canceled"}
+																	{project.state == 1 && "Expired"}
 																	{project.state == 2 && "Successful"}
 																</div>
 															</div>
