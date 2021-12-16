@@ -274,7 +274,7 @@ export default function Project() {
 										{project.state == 2 &&<span className="text-inter">Status :- Succesful</span>}
 									</li>
 									<li className="">
-										{deadline.timeZone}
+										Deadline - {deadline.timeZone}
 									</li>
 									<li className="">
 										<span className="text-inter">Raised {(Number(project.currentBalance)/1000000000000000000).toFixed(2)} MATIC</span>
