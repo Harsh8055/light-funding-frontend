@@ -19,12 +19,12 @@
 
 .st0{fill:#8247E5;}
 
-.bg {
+/* .bg {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 8s ease infinite;
 	height: 100vh;
-}
+} */
 .bg {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
@@ -41,6 +41,14 @@
  .customcss:hover {
 	transform: translate(-1%, -2%);
     background-color: #c8d3e9;
+ }
+
+ .glass {
+	background: rgba( 255, 255, 255, 0.5 );
+	box-shadow: 0 2px 12px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 11.5px );
+	-webkit-backdrop-filter: blur( 16.5px );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
  }
 
 @keyframes gradient {

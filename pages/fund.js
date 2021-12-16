@@ -140,10 +140,10 @@ export default function Home() {
 														</div>
 												
 														<div class="flex space-x-2 text-sm font-medium justify-start">
-															<button class="transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 ">
+															<button class="transition ease-in duration-100 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-700 ">
 																<span>Fund Me</span>
 															</button>
-															{project.category && <button class="transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-green-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 ">
+															{project.category && <button class="transition ease-in duration-100 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-green-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-green-600 ">
 																<span>{project.category}</span>
 															</button>}
 														</div>

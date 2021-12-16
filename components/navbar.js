@@ -70,7 +70,7 @@ export default function Navbar() {
 	}, [account])
 
 	return (
-		<Disclosure as="nav" className="bg-white w-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 border border-opacity-0">
+		<Disclosure as="nav" className="bg-white glass sticky top-0 z-50 w-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 border border-opacity-0">
 			{({ open }) => (
 				<>
 				<div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -89,7 +89,7 @@ export default function Navbar() {
 					<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 						<div className="flex-shrink-0 flex items-center">
 							<Link href='/'>
-								<h1 className="font-inter text-black px-3 rounded-md text-xl font-semibold"> Light </h1>
+								<h1 className="font-inter text-black px-3 rounded-md text-xl cursor-pointer  font-semibold"> Light </h1>
 							</Link>
 						</div>
 					</div>
@@ -113,7 +113,7 @@ export default function Navbar() {
 								))}
 							</div>
 						</div>
-						{isAuthenticated ? <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400">Connected</div> : <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400" onClick={login}>Connect Wallet</div>}
+						{isAuthenticated ? <div className="bg-gray-700 text-white px-3 py-2 rounded-md text-sm cursor-pointer font-medium hover:bg-gray-900">Connected</div> : <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400" onClick={login}>Connect Wallet</div>}
 					</div>
 					{/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 						<button
