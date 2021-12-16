@@ -107,7 +107,7 @@ export default function Home() {
     }
 
 	return (
-		<div>
+		<div className='bg'>
 			<Head>
 				<title>Start - Crowdfunding</title>
 			</Head>
