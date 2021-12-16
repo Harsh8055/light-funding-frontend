@@ -70,7 +70,7 @@ export default function Navbar() {
 	}, [account])
 
 	return (
-		<Disclosure as="nav" className="absolute w-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 border border-opacity-0">
+		<Disclosure as="nav" className="bg-white w-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 border border-opacity-0">
 			{({ open }) => (
 				<>
 				<div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

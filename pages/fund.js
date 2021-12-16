@@ -102,7 +102,56 @@ export default function Home() {
 			<Head>
 				<title>Fund - Crowdfunding</title>
 			</Head>
-			<div className='w-full h-full'>
+			<div className="w-full h-full">
+				<Navbar />
+				<div className="bg h-full w-full flex flex-col justify-center items-center">
+					<div className="mt-20 w-full h-full flex justify-center items-start gap-20">
+						<p className='cursor-pointer'>DAO</p>
+						<p className='cursor-pointer'>NFT</p>
+						<p className='cursor-pointer'>DeFi</p>
+					</div>
+					<div className="w-full h-full">
+						<div class="w-full grid grid-rows-3 md:grid-rows-none md:grid-cols-3 m-5">
+							{allProjects.map(project => (
+								<Link href={`/project/${Number(project.projectId)}`} key={project.projectId}>
+									<div class="relative w-5/6 h-full flex justify-center rounded-xl hover:scale-105 duration-500 transform transition cursor-pointer">
+										<div class="top-0 left-0 mt-3 rounded-lg absolute py-2 px-3 z-30 bg-green-500 text-gray-100 text-xs md:text-sm font-medium md:block">
+											{project.state == 0 && "Raising"}
+											{project.state == 1 && "Canceled"}
+											{project.state == 2 && "Successful"}
+										</div>
+										<div class="w-full bg-white rounded-xl shadow-xl z-10">
+											<div class="">
+												<img src={project.img} class="max-h-60 w-full object-cover rounded-t-xl" alt="" />
+												<div class="bottom-0 right-0 mb-2 mr-2 rounded-lg absolute bg-yellow-500 py-2 px-3 text-gray-100 text-xs font-medium">{project.category}</div>
+											</div>
+											<div class="flex flex-col justify-center items-start gap-5 p-5">
+												<div class="text-sm md:text-base font-bold">{project.title}</div>
+												<div class="flex">
+													<div class="flex justify-between item-center">
+															<div class="flex items-center gap-10">
+																<p>Raised {utils.formatEther(project.currentBalance)}</p>
+																<p>Goal {utils.formatEther(project.amountGoal)}</p>
+																{Number(project.amountGoal) > (Number(project.currentBalance)) && <p>Needed {(Number(project.amountGoal)/1000000000000000000 - Number(project.currentBalance)/1000000000000000000).toFixed(3)}</p> }
+																{Number(project.amountGoal) < (Number(project.currentBalance)) && <p> 0 MATIC Needed</p>}
+															</div>
+													</div>
+												</div>
+												<p class="text-ellipsis overflow-hidden max-h-20 text-xs md:text-sm text-gray-500">
+													{project.description}
+												</p>
+												<a class="flex justify-center bg-blue-500 hover:bg-white text-sm md:text-base border hover:border-2 hover:border-blue-500 rounded-xl w-14 md:w-1/2 p-1 text-gray-100 hover:text-blue-900" href="#">Fund this Project</a>
+											</div>
+										</div>
+									</div>
+								</Link>
+							))}
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			{/* <div className='bg w-full h-full'>
 				<Navbar></Navbar>
 				<div className="w-full h-screen flex flex-col justify-center items-center">
 					<h1 className='text-4xl font-bold mb-5'>Find a Project and fund them in MATIC&nbsp;&nbsp;&nbsp;</h1>
@@ -195,7 +244,7 @@ export default function Home() {
 				</div>
 				<FAQ></FAQ>
 				<Footer></Footer>
-			</div>
+			</div> */}
 			<MyModal isOpen={isOpen} setIsOpen={setIsOpen} title='Find a Project'>
 				<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 					<div class="w-full px-3 mb-6 md:mb-0">
