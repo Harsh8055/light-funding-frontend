@@ -288,7 +288,13 @@ export default function Project() {
 							<div>
 								<input class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none" id="funding" type="text" placeholder="Invest" onChange={(e)=> setAmount(e.currentTarget.value)} />
 								<button onClick={fundProject}>
-									<a className='bg-gray-900 text-white ml-5 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400 hover:text-black'>Fund a Project</a>
+									<a className='bg-gray-900 text-white ml-5 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400 hover:text-black'>Fund this Project</a>
+								</button>
+								<br />
+								<br />
+								<br />
+								<button onClick={updateStatus} className='mt-4'>
+									<a className='bg-gray-900 text-white ml-5  px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400 hover:text-black'>update status</a>
 								</button>
 							</div>
 						</div>
