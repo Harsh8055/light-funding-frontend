@@ -3,6 +3,7 @@ import { useState } from "react"
 import Navbar from "../components/navbar"
 import MyModal from "../components/modal"
 import FAQ from "../components/faq"
+import Footer from "../components/footer"
 // How it works
 // How to Start a Project
 // How to fund a project
@@ -15,7 +16,7 @@ export default function About() {
 	const [isWithdrawOpen, setIsWithdrawOpen] = useState(false)
 
 	return (
-		<div className="bg">
+		<div className="bg bg-fixed bg-cover">
 			<Head>
 				<title>About - Light</title>
 			</Head>
@@ -114,6 +115,7 @@ export default function About() {
 			</section>
 
 			<FAQ></FAQ>
+			<Footer></Footer>
 
 			<MyModal isOpen={isWorksOpen} setIsOpen={setIsWorksOpen} title='How Light Works'>
 				You can connect your metamask wallet and can fund any project you like in MATIC or ETH, if you have a great idea then you can start a project and collect funding and start working on the next great thing
