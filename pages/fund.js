@@ -120,7 +120,7 @@ export default function Home() {
 							</button> }
 							</div> */}
 						<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-							{allProjects.map(project => (
+							{allProjects.slice(0).reverse().map(project => (
 								<Link  href={`/project/${Number(project.projectId)}`} key={project.projectId}>
 									<div class="w-full overflow-hidden flex flex-col justify-center items-center">
 										<div class="max-w-md h-full w-full glass rounded-xl p-5">

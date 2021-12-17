@@ -4,7 +4,7 @@ import {ethers, utils} from "ethers"
 import { useState, useEffect } from 'react'
 import { create } from 'ipfs-http-client'
 
- 
+
 import Navbar from '../components/navbar'
 import MyModal from '../components/modal'
 import FAQ from '../components/faq'
@@ -19,12 +19,12 @@ export default function Home() {
 	const serverUrl = "https://gof9exmm7cf0.usemoralis.com:2053/server";
     const appId = "bOY1ool81GNT0Ty6e99SBOSNi9aZ5jDfJXQhBjbC";
 	const masterKey = "uU2Tk7hhpL924c5O7gulviP4mo0hNEIjN1LewIIj"
-	Moralis.start({ serverUrl, appId, masterKey }) 
+	Moralis.start({ serverUrl, appId, masterKey })
 	let [isOpen, setIsOpen] = useState(false)
     let [selects, setSelects] = useState("");
     let [allProjects, setAllProjects] = useState([]);
 	let [account, setAccount] = useState("");
-	
+
 	useEffect(() => {
 		getProjectsFunc()
 	}, []);
@@ -37,7 +37,7 @@ export default function Home() {
 		const contract = new ethers.Contract(contractAddress, projectContract.abi, signer);
 
 		try {
-			let getAllProjectsArray = await contract.getAllProjects(); 
+			let getAllProjectsArray = await contract.getAllProjects();
 			console.log(getAllProjectsArray);
 			console.log(getAllProjectsArray[0].title);
 			console.log(getAllProjectsArray[0][4]);
@@ -45,7 +45,7 @@ export default function Home() {
 			setAllProjects(getAllProjectsArray);
 		}
 		catch (e) {
-			console.log(e);			
+			console.log(e);
 		}
 	}
 
@@ -64,7 +64,7 @@ export default function Home() {
 
      async function startProject() {
 		 getProjectsFunc();
-		 
+
 		const provider = new ethers.providers.Web3Provider(window.ethereum);
 		const signer = provider.getSigner();
 		 const contract = new ethers.Contract(contractAddress, projectContract.abi, signer);
@@ -75,15 +75,15 @@ export default function Home() {
 
 			 let amountInEthers = document.getElementById("fundamount").value;
 			 let amount = ethers.utils.parseEther(amountInEthers);
-			 
+
 
 			 let time = document.getElementById("time").value;
 			 let location = document.getElementById("location").value;
 
-			 // image process upload to ipfs first 
+			 // image process upload to ipfs first
 			 let img = await uploadImageOnIPFS();
 			 console.log(img);
-            
+
 			// const object = {
 			// 	"title" : "Light POC NFT",
 			// 	"description": "This is a nft which is rewarded for contributing in any project on light",
@@ -92,14 +92,14 @@ export default function Home() {
 			// const file = new Moralis.File("file.json", {base64 : btoa(JSON.stringify(object))});
 			// let uri = await file.saveIPFS();
 			// console.log(uri._ipfs);
-			
+
 	        let uri = "https://gateway.pinata.cloud/ipfs/QmUa2KQr7xmuFA9VCMLKbGFDBGwXnEroHxoFNVahs49HtQ";
 			let txn = await contract.startProject(title, desc, time, amount, location, selects, img, uri);
 			let txnreceipt = await txn.wait();
 			console.log(txnreceipt);
 			getProjectsFunc();
-		    
-			
+
+
 		 } catch (e) {
 
 			 alert(e.message)
@@ -123,7 +123,7 @@ export default function Home() {
 					<h1 className='text-4xl font-bold mb-10 mt-10'>Your Projects</h1>
 					<div className="max-w-5xl mx-auto px-12 sm:px-6 lg:px-4 py-12 md:p-4">
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-						{ allProjects.filter((ele)=> ele.creator.toLowerCase() == account[0].toLowerCase()).map(project => (
+						{ allProjects.slice(0).reverse().filter((ele)=> ele.creator.toLowerCase() == account[0].toLowerCase()).map(project => (
 							<Link  href={`/project/${Number(project.projectId)}`} key={project.projectId}>
 									<div class="w-full overflow-hidden flex flex-col justify-center items-center">
 										<div class="max-w-md h-full w-full glass rounded-xl p-5">
@@ -154,7 +154,7 @@ export default function Home() {
 																{Number(project.amountGoal) < (Number(project.currentBalance)) && <p> 0 MATIC Needed</p>}
 															</div>
 														</div>
-												
+
 														<div class="flex space-x-2 text-sm font-medium justify-start">
 															<button class="transition ease-in duration-100 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-700 ">
 																<span>Fund Me</span>
@@ -208,7 +208,7 @@ export default function Home() {
 						</label>
 						<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="location" type="text" placeholder="Location" />
 					</div>
-					
+
 					<div class="w-full px-3 mb-6 md:mb-0">
 						<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
 							Category
