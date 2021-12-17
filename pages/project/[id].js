@@ -308,6 +308,7 @@ export default function Project() {
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
 					{/* <div className="w-96 p-4">
 						<a href="#">
 							<h5 className='font-bold text-lg '>{project.title}</h5>
@@ -335,9 +336,13 @@ export default function Project() {
 
 				{project.state == 1 && <a className='bg-gray-900 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black mt-4' onClick={getRefund}> Get Refund</a>} */}
 
+=======
+
+					
+>>>>>>> 1e8df72b4d1d85766dab346656e31dccd8fdacd9
 			</div>
 			</div>
-			{   <div className="w-full mx-auto rounded-xl h-full flex justify-start items-center flex-col">
+			{   <div className="w-full mx-auto rounded-xl  flex justify-start items-center flex-col">
 					<h1 className='text-4xl font-bold mb-5 mt-10'> Project Withdrawal Requests</h1>
 					<a  className=' text-black px-3 py-2 text-xl font-medium mr-12 '> Balance - {(Number(project.currentBalance)/1000000000000000000).toFixed(5)} </a>
 
@@ -348,7 +353,7 @@ export default function Project() {
 
 					{requests.slice(0).reverse().map( (request) => (<div className="p-4 md:w-full w-full">
 						  {/* <div className="h-full glass p-8 rounded-lg"> */}
-						  <div class="w-full overflow-hidden flex flex-col justify-center items-center">
+						  <div class="w-full -mb-60 overflow-hidden flex flex-col justify-center items-center">
 										<div class="max-w-md h-full w-full glass rounded-xl p-5">
 											<div class="flex flex-col">
 												<div class="">
