@@ -4,7 +4,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
-import { ethers } from "ethers"
+import { ethers, providers } from "ethers"
 
 import useSWR from "swr"
 
@@ -36,7 +36,16 @@ export default function Navbar() {
 		if(accounts.length !== 0) {
 			const account = accounts[0]
 			console.log("Found Account, ", account)
+			let provider = new ethers.providers.Web3Provider(window.ethereum)
+			let network = await provider.getNetwork()
 			setAccount(account)
+			if(network.name !==  "maticmum") {
+				alert("not connected to polygon mumbai testnet, please change the network to polygon mumbai testnet ")
+			}
+			else {
+				console.log('maticmum connected');
+				
+			}
 		} else {
 			console.log("Create a Ethereum Account")
 		}
