@@ -113,7 +113,7 @@ export default function Navbar() {
 								))}
 							</div>
 						</div>
-						{isAuthenticated ? <div className="bg-gray-700 text-white px-3 py-2 rounded-md text-sm cursor-pointer font-medium hover:bg-gray-900">Connected</div> : <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-400" onClick={login}>Connect Wallet</div>}
+						{isAuthenticated ? <div className="bg-green-500 text-white px-3 py-2 rounded-md text-sm cursor-pointer font-medium hover:green-700">Connected</div> : <div className="bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-900" onClick={login}>Connect Wallet</div>}
 					</div>
 					{/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 						<button
