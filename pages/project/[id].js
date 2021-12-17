@@ -308,7 +308,6 @@ export default function Project() {
 							</div>
 						</div>
 					</div>
-<<<<<<< HEAD
 					{/* <div className="w-96 p-4">
 						<a href="#">
 							<h5 className='font-bold text-lg '>{project.title}</h5>
@@ -336,10 +335,8 @@ export default function Project() {
 
 				{project.state == 1 && <a className='bg-gray-900 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black mt-4' onClick={getRefund}> Get Refund</a>} */}
 
-=======
 
 					
->>>>>>> 1e8df72b4d1d85766dab346656e31dccd8fdacd9
 			</div>
 			</div>
 			{   <div className="w-full mx-auto rounded-xl  flex justify-start items-center flex-col">
