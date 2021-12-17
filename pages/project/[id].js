@@ -244,7 +244,7 @@ export default function Project() {
   }
 
 	return (
-		<div className="w-full h-full">
+		<div className="w-full h-full bg-cover bg custom-img bg-fixed">
 			<Navbar></Navbar>
 			<div className="bg w-full h-screen flex flex-col justify-center items-center">
 				<div className='flex justify-center items-center'>

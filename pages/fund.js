@@ -20,6 +20,7 @@ export default function Home() {
     let [allMyProjects, setMyProjects ] = useState([]);
     let [totalContribution, setTotalContributions] = useState(0);
 
+	let [buttonState, setButtonState] = useState(0)
 	useEffect( () => {  getProjectsFunc() }, []);
 
 
@@ -38,7 +39,7 @@ export default function Home() {
 			console.log(getAllProjectsArray[0][4]);
 			console.log(getAllProjectsArray)
 			setAllProjects(getAllProjectsArray);
-
+            setButtonState(0);
 			
 		} 
 		catch (e) {
@@ -57,19 +58,20 @@ export default function Home() {
 			  if (contri > 0 ) {
 
 				  console.log("condition met");
-				  newArr.push(p);
+				  newArr.unshift(p);
 				  totalContri = totalContri + contri;
    
 			  }
 		   }  ) 
+		   setButtonState(1);
 		  setTimeout(() => {
-			  setMyProjects(newArr);
+			  setAllProjects(newArr);
 		  console.log(newArr);
 		  
 		  console.log(allMyProjects);
 		  setTotalContributions(totalContri);
 			  
-		  }, 100); 
+		  }, 200); 
 		}
 
 	
@@ -98,14 +100,24 @@ export default function Home() {
 
     
 	return (
-		<div>
+		<div className='bg-cover bg custom-img bg-fixed'>
 			<Head>
 				<title>Fund - Crowdfunding</title>
 			</Head>
-			<div className="bg w-full h-full">
+			<div className=" w-full h-full">
 				<Navbar />
 				<div className="h-full w-full flex flex-col justify-center items-center mt-12">
 					<div className="max-w-5xl mx-auto px-12 sm:px-6 lg:px-4 py-12 md:p-4">
+					<div className='mx-80 translate-x-20 mb-6'>
+						{buttonState == 0 && <button class="transition mx-auto ease-in align duration-100 inline-flex items-center text-sm font-medium md:mb-0 bg-gray-700 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-700 " onClick={myProjects}>
+							<span>Show Funded Projects </span>
+							
+							</button> }
+						{buttonState == 1 && <button class="transition mx-4 mx-auto ease-in align duration-100 inline-flex items-center text-sm font-medium md:mb-0 bg-gray-700 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-700 " onClick={getProjectsFunc}>
+							<span>Show All Projects </span>
+							
+							</button> }
+							</div>
 						<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 							{allProjects.map(project => (
 								<Link  href={`/project/${Number(project.projectId)}`} key={project.projectId}>
