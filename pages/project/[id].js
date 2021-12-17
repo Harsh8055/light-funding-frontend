@@ -308,36 +308,11 @@ export default function Project() {
 							</div>
 						</div>
 					</div>
-					{/* <div className="w-96 p-4">
-						<a href="#">
-							<h5 className='font-bold text-lg '>{project.title}</h5>
-						</a>
-						<p className='mt-3'> {project.description} </p>
-						<br />
-						{project.state == 0 && <p className=''> Status - Fundraising</p>}
-						{project.state == 1 && <p className=''> Status - Expired</p>}
-						{project.state == 2 && <p className=''> Status - Succesfull</p>}
-						<p> Deadline - {deadline.hour} on {deadline.day}th  {deadline.month} {deadline.year} <br /> TimeZone -  {deadline.timeZone}  </p>
-						<div className="grid grid-cols-3 grid-rows-0 text-sm mt-5">
-							<p>Raised {(Number(project.currentBalance)/1000000000000000000).toFixed(2)} MATIC </p>
-							<p>Goal {Number(project.amountGoal)/1000000000000000000} MATIC</p>
-							{Number(project.amountGoal) > (Number(project.currentBalance)) && <p>Needed {(Number(project.amountGoal)/1000000000000000000 - Number(project.currentBalance)/1000000000000000000).toFixed(3)} MATIC </p> }
-							{Number(project.amountGoal) < (Number(project.currentBalance)) && <p>Needed 0 MATIC</p> }
-						</div>
-					</div> 
-				</div> */}
-				{/* <p className='translate-x-36'>	Your Contribution - {myFunds} </p>
-				<input className="shadow appearance-none translate-x-32  border rounded w-230 py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="number" placeholder="Amount In Ether" onChange={(e)=> setAmount(e.currentTarget.value)} />
 
-					<a className='bg-gray-900 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black mt-4' onClick={fundProject}>Fund this Project</a>
-					<br />
-				<p className=''> If getting error while funding, it means project is expired (if not succesful), consider updating the status 👇 so that it can appear on the project that the project is expired for everyone  </p>	<a className='bg-gray-200 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-100 hover:text-black mt-4' onClick={updateStatus}> Update State</a>
-
-				{project.state == 1 && <a className='bg-gray-900 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black mt-4' onClick={getRefund}> Get Refund</a>} */}
-			
+					
 			</div>
 			</div>
-			{   <div className="w-full mx-auto rounded-xl h-full flex justify-start items-center flex-col">
+			{   <div className="w-full mx-auto rounded-xl  flex justify-start items-center flex-col">
 					<h1 className='text-4xl font-bold mb-5 mt-10'> Project Withdrawal Requests</h1>
 					<a  className=' text-black px-3 py-2 text-xl font-medium mr-12 '> Balance - {(Number(project.currentBalance)/1000000000000000000).toFixed(5)} </a>
 
@@ -348,7 +323,7 @@ export default function Project() {
 
 					{requests.map( (request) => (<div className="p-4 md:w-full w-full"> 
 						  {/* <div className="h-full glass p-8 rounded-lg"> */}
-						  <div class="w-full overflow-hidden flex flex-col justify-center items-center">
+						  <div class="w-full -mb-60 overflow-hidden flex flex-col justify-center items-center">
 										<div class="max-w-md h-full w-full glass rounded-xl p-5">
 											<div class="flex flex-col">
 												<div class="">
