@@ -277,7 +277,7 @@ export default function Project() {
 										Deadline - {deadline.timeZone}
 									</li>
 									<li className="">
-										<span className="text-inter">Raised {(Number(project.currentBalance)/1000000000000000000).toFixed(2)} MATIC</span>
+										<span className="text-inter"> { project.state == 0 && <span> Raised </span> } { project.state !== 0 && <span>Balance </span> }  {(Number(project.currentBalance)/1000000000000000000).toFixed(2)} MATIC</span>
 									</li>
 									<li className="">
 										<span className="text-inter">Goal {Number(project.amountGoal)/1000000000000000000} MATIC</span>

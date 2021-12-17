@@ -126,7 +126,7 @@ export default function Home() {
 						{ allProjects.filter((ele)=> ele.creator.toLowerCase() == account[0].toLowerCase()).map(project => (
 							<Link  href={`/project/${Number(project.projectId)}`} key={project.projectId}>
 									<div class="w-full overflow-hidden flex flex-col justify-center items-center">
-										<div class="max-w-md h-full w-full bg-gray-900 shadow-lg rounded-xl p-5">
+										<div class="max-w-md h-full w-full glass rounded-xl p-5">
 											<div class="flex flex-col">
 												<div class="">
 													<div class="relative h-62 w-full mb-3">
@@ -135,18 +135,18 @@ export default function Home() {
 													<div class="flex-auto justify-evenly">
 														<div class="flex flex-wrap ">
 															<div class="flex items-center w-full justify-between min-w-0 ">
-																<h2 class="text- mr-auto cursor-pointer text-gray-200 hover:text-purple-500 truncate ">{project.description}</h2>
-																<div class="flex items-center bg-green-400 text-white text-xs px-2 py-1 ml-3 rounded-lg">
+																<h2 class="text- mr-auto cursor-pointer text-gray-700 hover:text-purple-500 truncate ">{project.description}</h2>
+																<div class="flex items-center bg-green-400 text-gray-900 text-xs px-2 py-1 ml-3 rounded-lg">
 																	{project.state == 0 && "Raising"}
 																	{project.state == 1 && "Expired"}
 																	{project.state == 2 && "Successful"}
 																</div>
 															</div>
 														</div>
-														<div class="text-lg text-white font-semibold mt-1 mb-4">
+														<div class="text-lg text-gray-900 font-semibold mt-1 mb-4">
 															{project.title}
 														</div>
-														<div class="flex justify-between item-center text-white mb-4">
+														<div class="flex justify-between item-center text-gray-900 mb-4">
 															<div class="flex items-center gap-10">
 																<p>Raised {utils.formatEther(project.currentBalance)}</p>
 																<p>Goal {utils.formatEther(project.amountGoal)}</p>

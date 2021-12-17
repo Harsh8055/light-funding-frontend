@@ -104,7 +104,7 @@ export default function Home() {
 			<Head>
 				<title>Fund - Crowdfunding</title>
 			</Head>
-			<div className=" w-full h-full">
+			<div className=" bg w-full h-full">
 				<Navbar />
 				<div className="h-full w-full flex flex-col justify-center items-center mt-12">
 					<div className="max-w-5xl mx-auto px-12 sm:px-6 lg:px-4 py-12 md:p-4">
@@ -309,6 +309,7 @@ export default function Home() {
 					</div>
 				</form>
 			</MyModal>
+			<Footer></Footer>
 		</div>
 	)
 }
