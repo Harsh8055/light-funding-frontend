@@ -10,7 +10,7 @@ export default function FAQ() {
 			{({ open }) => (
 			  <>
 				<Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-				  <span>What is your refund policy?</span>
+				  <span> I Can't Fund To A Project,  Why?</span>
 				  <ChevronUpIcon
 					className={`${
 					  open ? 'transform rotate-180' : ''
@@ -18,8 +18,7 @@ export default function FAQ() {
 				  />
 				</Disclosure.Button>
 				<Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-gray-500">
-				  If you're unhappy with your purchase for any reason, email us
-				  within 90 days and we'll refund you in full, no questions asked.
+				 If you are getting error while funding , then probably the project is expired. Check the deadline date, if the date is passed the project is expired, but it is not updated on the blockchain, you can update project to expired by clicking on the "update status" button
 				</Disclosure.Panel>
 			  </>
 			)}
@@ -28,7 +27,7 @@ export default function FAQ() {
 			{({ open }) => (
 			  <>
 				<Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg  font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-				  <span>Do you offer technical support?</span>
+				  <span>Why i don't see the refund button even though the project is expired?</span>
 				  <ChevronUpIcon
 					className={`${
 					  open ? 'transform rotate-180' : ''
@@ -36,7 +35,7 @@ export default function FAQ() {
 				  />
 				</Disclosure.Button>
 				<Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-gray-500">
-				  No.
+				  This happens because the project is expired but the status is not update on the blockchain, so what you can do is click on the update status button and update the status from fundraising to expired, after you have done that you will be able to se the refund option
 				</Disclosure.Panel>
 			  </>
 			)}

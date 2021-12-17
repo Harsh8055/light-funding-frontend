@@ -100,7 +100,7 @@ export default function Home() {
 
     
 	return (
-		<div className='bg-cover bg custom-img bg-fixed'>
+		<div className='bg-cover bg bg-fixed'>
 			<Head>
 				<title>Fund - Crowdfunding</title>
 			</Head>
