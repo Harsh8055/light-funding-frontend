@@ -17,14 +17,14 @@ import projectContract from "../../interface/projectContract.json"
 
 const contractAddressRinkeby = "0x6E4EC75096C050Cda0467fD9DC0D35496538b019";
 const contractAddress = "0x6C9AE8B5FCAFBCaFb0404e259f72F6b143d4e69f"; // mumbai matic
-export default function Project() {	
+export default function Project() {
 	let [isOpen, setIsOpen] = useState(false);
 	const router = useRouter()
   	const { id } = router.query
 	const [account, setAccount] = useState("")
- 
+
 	const [project, setProject] = useState([]);
-	
+
 	const [requests, setRequests] = useState([]);
 	const [amountToFund, setAmount] = useState()
 	const [myFunds, setMyFunds] = useState(0);
@@ -36,10 +36,10 @@ export default function Project() {
 	const [description, setDescription ] = useState("");
 	const [receiptent, setReceiptent] = useState("");
 
-	useEffect(() => {getProject(id)}, [id]) 
-	useEffect(() => {unixToDate()}, [project]) 
-	
-	async function getProject(id) { 
+	useEffect(() => {getProject(id)}, [id])
+	useEffect(() => {unixToDate()}, [project])
+
+	async function getProject(id) {
 		console.log(id)
 		let account = await ethereum.request({ method: 'eth_accounts' });
 		setAccount(account[0]);
@@ -48,23 +48,23 @@ export default function Project() {
 
 		const signer = provider.getSigner();
 		const contract = new ethers.Contract(contractAddress, projectContract.abi, provider);
-		
+
 		try {
 			console.log(id)
 			let getProject = await contract.getDetails(Number(id));
 			setProject(getProject)
 			console.log(getProject);
-		 
+
 			await myContribution(id)
 
-			
+
 		}
 		catch (e) {
 			console.log(e);
 		}
-		
+
 		await getAllRequest();
-		
+
 	}
 
 	async function fundProject() {
@@ -77,17 +77,17 @@ export default function Project() {
 
         let Account = await ethereum.request({ method: 'eth_accounts' });
 
-		
+
 		const blocktag = await provider._getBlockTag();
 		// console.log(blocktag);
-		
+
 		const result = await provider.getBalance(Account[0], blocktag);
-		
+
 		// console.log(Number(result));
 		let balance = ethers.utils.formatEther(result);
 		// console.log(balance);
-		
-		
+
+
 		if(amountToFund == "" || amountToFund <= 0) {
 			alert("funding amount can't be 0 or less since you can't pour from an empty cup");
 		}
@@ -104,7 +104,7 @@ export default function Project() {
 				const options = {value: amountToContribute }
 				let fundProjectTxn = await contract.contribute(Number(id), options);
 				await fundProjectTxn.wait();
-				getProject(id)	
+				getProject(id)
 			} catch (e) {
 				console.log(`e`, e)
 				alert(e.message, "project is expired or succesfull, consider updating the state (from button below fund project) so that it can appear on the project that the project is expired for everyone" )
@@ -155,7 +155,7 @@ export default function Project() {
 		await check.wait();
 		getProject(id)
 	}
- 
+
 
 	async function vote(e) {
 		let provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -163,7 +163,7 @@ export default function Project() {
 		let contract = new ethers.Contract(contractAddress, projectContract.abi, signer);
 		try {
 			console.log(e.currentTarget.id);
-			
+
 			let votetxn  = await contract.voteRequest(Number(id), e.currentTarget.id);
 			await votetxn.wait();
 			getProject(id)
@@ -173,7 +173,7 @@ export default function Project() {
 		}
 	}
 
- 
+
 
 	async function myContribution() {
 		let provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -182,10 +182,10 @@ export default function Project() {
 		console.log(id);
 		let accounts = await ethereum.request({ method: 'eth_accounts' });
 		console.log("account is ", accounts[0]);
-		
-		
+
+
 		let myFunding = await contract.myContributions(Number(id), accounts[0]);
-	
+
 		console.log(myFunding);
 		setMyFunds((Number(myFunding)/1000000000000000000).toFixed(6));
 	}
@@ -193,15 +193,15 @@ export default function Project() {
 	async function getAllRequest() {
 		let provider = new ethers.providers.Web3Provider(window.ethereum);
 		let contract = new ethers.Contract(contractAddress, projectContract.abi, provider);
-	    
-	  	
+
+
 		try {
 			let allRequests = await contract.getAllRequests(Number(id));
-			setRequests(allRequests);	
-			console.log(allRequests);	
+			setRequests(allRequests);
+			console.log(allRequests);
 
-	
-			
+
+
 		} catch (e) {
 			console.log(e)
 		}
@@ -223,11 +223,11 @@ export default function Project() {
 			console.log(amount, description, receiptent);
 			let createRequestTxn = await contract.createRequest(Number(id), description, amount, receiptent);
 			await createRequestTxn.wait();
-			console.log("request created"); 
+			console.log("request created");
 			getAllRequest();
 		} catch (e) {
 			alert(e.message)
-		}		
+		}
 	}
 
   async function createRequestButtonHandler() {
@@ -301,7 +301,7 @@ export default function Project() {
 								<br />
 								<br />
 								{project.state == 1 && <a className='bg-red-500 text-white  cursor-pointer px-3 py-2 rounded-md text-sm font-medium hover:bg-red-700' onClick={getRefund}> Get Refund</a>}
-		
+
 								<button onClick={updateStatus} className='mt-4'>
 									<a className='bg-purple-700 text-white ml-5  px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-900 '>update status</a>
 								</button>
@@ -324,7 +324,7 @@ export default function Project() {
 							{Number(project.amountGoal) > (Number(project.currentBalance)) && <p>Needed {(Number(project.amountGoal)/1000000000000000000 - Number(project.currentBalance)/1000000000000000000).toFixed(3)} MATIC </p> }
 							{Number(project.amountGoal) < (Number(project.currentBalance)) && <p>Needed 0 MATIC</p> }
 						</div>
-					</div> 
+					</div>
 				</div> */}
 				{/* <p className='translate-x-36'>	Your Contribution - {myFunds} </p>
 				<input className="shadow appearance-none translate-x-32  border rounded w-230 py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="number" placeholder="Amount In Ether" onChange={(e)=> setAmount(e.currentTarget.value)} />
@@ -334,7 +334,7 @@ export default function Project() {
 				<p className=''> If getting error while funding, it means project is expired (if not succesful), consider updating the status 👇 so that it can appear on the project that the project is expired for everyone  </p>	<a className='bg-gray-200 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-100 hover:text-black mt-4' onClick={updateStatus}> Update State</a>
 
 				{project.state == 1 && <a className='bg-gray-900 text-white px-3  translate-x-32  py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black mt-4' onClick={getRefund}> Get Refund</a>} */}
-			
+
 			</div>
 			</div>
 			{   <div className="w-full mx-auto rounded-xl h-full flex justify-start items-center flex-col">
@@ -346,7 +346,7 @@ export default function Project() {
 					<div className="grid grid-cols-3 grid-rows-2 gap-10 m-10">
 
 
-					{requests.map( (request) => (<div className="p-4 md:w-full w-full"> 
+					{requests.slice(0).reverse().map( (request) => (<div className="p-4 md:w-full w-full">
 						  {/* <div className="h-full glass p-8 rounded-lg"> */}
 						  <div class="w-full overflow-hidden flex flex-col justify-center items-center">
 										<div class="max-w-md h-full w-full glass rounded-xl p-5">
@@ -379,8 +379,8 @@ export default function Project() {
 																<span className="bg-gray-100 rounded-xl p-2">Votes Required For Withdrawal  - {Math.round((Number(project.noOfContributors) - Number(request.noOfVoter))/2)}</span>
 															</div>
 														</div>
-														
-												
+
+
 														<div class="flex text-sm font-medium justify-start">
 															{!request.status && <button id={Number(request.requestId)} onClick={(e) => {vote(e)}} class="transition ease-in duration-100 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-700 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-700 ">
 																<span>Vote this request</span>
@@ -391,30 +391,10 @@ export default function Project() {
 											</div>
 										</div>
 									</div>
-		  
-		
-					   {/* <p className="leading-relaxed font-medium mb-6"> {request.desc} </p>
-					   <a className="inline-flex items-center">
-						<span className="flex-grow flex flex-col ">
-						<span className="title-font font-medium text-gray-900"> Current Status  - {!request.status && "Not Completed"} {request.status && "Completed"}</span>
-							<br />
-						<span className="title-font font-medium text-gray-900"> Request ID  - {Number(request.requestId)}</span>
-						<span className="title-font font-medium text-gray-900"> Withdrawal Address  - {request.receipient}</span>
-						<span className="title-font font-medium text-gray-900"> Withdrawal Value  - {(Number(request.value)/1000000000000000000).toFixed(3)} </span>
-						<span className="title-font font-medium text-gray-900"> Withdrawal Fee (3%) - {(Number(request.value)*3/100000000000000000000).toFixed(3)} </span>
-						<span className="title-font font-medium text-gray-900"> Total Current Votes  - {Number(request.noOfVoter)} </span>
-						<span className="title-font font-medium text-gray-900">
-						   Votes Required For Withdrawal  - {Math.round((Number(project.noOfContributors) - Number(request.noOfVoter))/2)}
-						</span>
-						  { !request.status && <a className='bg-gray-900 text-white px-16  py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black mt-10' id={Number(request.requestId)} onClick={(e) => {vote(e)}} > <p className='mx-16 px-4'> Vote This Request</p></a> }
-			
-					  </span>
-				   </a> */}
-				   {/* </div> */}
 				  </div>) )}
-					 
-					 
-						
+
+
+
 
 					</div>
 				</div> }
