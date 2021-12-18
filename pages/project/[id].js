@@ -22,7 +22,7 @@ export default function Project() {
 	const router = useRouter()
   	const { id } = router.query
 	const [account, setAccount] = useState("")
-
+	const [ html , setHtml] = useState("");
 	const [project, setProject] = useState([]);
 
 	const [requests, setRequests] = useState([]);
@@ -103,7 +103,13 @@ export default function Project() {
 				let amountToContribute  = utils.parseEther(amountToFund);
 				const options = {value: amountToContribute }
 				let fundProjectTxn = await contract.contribute(Number(id), options);
-				await fundProjectTxn.wait();
+			
+				let fundTxn = await fundProjectTxn.wait();
+				console.log(fundProjectTxn);
+				console.log(fundTxn.logs[1].address);
+				let html = `${fundTxn.logs[1].address}`
+							setHtml(html);
+
 				getProject(id)
 			} catch (e) {
 				console.log(`e`, e)
@@ -277,6 +283,9 @@ export default function Project() {
 										Deadline - {deadline.timeZone}
 									</li>
 									<li className="">
+										Total Contributors - {Number(project.noOfContributors)}
+									</li>
+									<li className="">
 										<span className="text-inter"> { project.state == 0 && <span> Raised </span> } { project.state !== 0 && <span>Balance </span> }  {(Number(project.currentBalance)/1000000000000000000).toFixed(2)} MATIC</span>
 									</li>
 									<li className="">
@@ -298,12 +307,15 @@ export default function Project() {
 								<button onClick={fundProject}>
 									<a className='bg-green-500 cursor-pointer text-white ml-5 px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700'>Fund this Project</a>
 								</button>
+
 								<br />
+                             { html != "0x0000000000000000000000000000000000001010"  && html != "" && <a href={"https://mumbai.polygonscan.com/token/" + html} > <button className='bg-purple-700 text-white mt-2  px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-900'> See NFT Txn</button> </a>    }                            
+                              {  html != "0x0000000000000000000000000000000000001010"  && html != "" && <a href={"https://testnets.opensea.io/assets/mumbai/" + html + "/0"} > <button className='bg-purple-700 mt-2 text-white   px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-900'> See NFT on Opensea</button> </a> }                               
 								<br />
-								{project.state == 1 && <a className='bg-red-500 text-white  cursor-pointer px-3 py-2 rounded-md text-sm font-medium hover:bg-red-700' onClick={getRefund}> Get Refund</a>}
+								{project.state == 1 && <a className='bg-red-500 text-white  cursor-pointer px-3 py-2 rounded-md text-sm mr-2 font-medium hover:bg-red-700' onClick={getRefund}> Get Refund</a>}
 
 								<button onClick={updateStatus} className='mt-4'>
-									<a className='bg-purple-700 text-white ml-5  px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-900 '>update status</a>
+									<a className='bg-purple-700 text-white  px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-900 '>update status</a>
 								</button>
 							</div>
 						</div>
