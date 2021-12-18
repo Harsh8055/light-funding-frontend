@@ -280,7 +280,7 @@ export default function Project() {
 									{project.description}
 								</p>
 							</div>
-							<a onClick={() => {setIsReadMore(true)}} className='bg-gray-900 text-white px-3 py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black'>Read More</a>
+							<a onClick={() => {setIsReadMore(true); setProjectDescription(project.description)}} className='bg-gray-900 text-white px-3 py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black'>Read More</a>
 						</div>
 
 						<div className="mt-4">
@@ -386,7 +386,7 @@ export default function Project() {
 													<div class="flex-auto justify-evenly">
 														<div class="flex flex-wrap ">
 															<div class="flex items-center w-full justify-between min-w-0 ">
-																<h2 class="text- mr-auto cursor-pointer text-gray-700 hover:text-purple-500 truncate ">{request.desc}</h2>
+																<h2 onClick={() => {setIsReadMore(true); setProjectDescription(request.desc)}} class="text- mr-auto cursor-pointer text-gray-700 hover:text-purple-500 truncate ">{request.desc}</h2>
 																{!request.status && <div class="flex items-center bg-red-500 cursor pointer text-white text-xs px-2 py-1 ml-3 rounded-lg">Pending
 																</div>}
 																{request.status && <div class="flex items-center bg-green-500 cursor pointer text-gwhite text-xs px-2 py-1 ml-3 rounded-lg">Completed
@@ -451,8 +451,8 @@ export default function Project() {
 				</form>
 			</MyModal>
 
-			<MyModal isOpen={isReadMore} setIsOpen={setIsReadMore} title={project.title}>
-				{project.description}
+			<MyModal isOpen={isReadMore} setIsOpen={setIsReadMore} title="Read More">
+				{projectDescription}
 			</MyModal>
 
 			<FAQ></FAQ>
