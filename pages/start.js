@@ -13,7 +13,7 @@ import projectContract from "../interface/projectContract.json"
 
 
 // const contractAddressR = "0x6E4EC75096C050Cda0467fD9DC0D35496538b019";
-const contractAddress = "0xfA7637B96ed7e3580215504e55519feF0bC95e57"; // mumbai matic
+const contractAddress = "0x2b33a306F68f208C97d0DbdbE702431b22745377"; // mumbai matic
 const client = create('https://ipfs.infura.io:5001/api/v0')
 export default function Home() {
 	

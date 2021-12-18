@@ -4,7 +4,7 @@ import Navbar from '../components/navbar'
 import Main from '../components/main'
 import Footer from '../components/footer'
 
-export const CONTRACT_ADDRESS = '0xfA7637B96ed7e3580215504e55519feF0bC95e57'
+export const CONTRACT_ADDRESS = '0x2b33a306F68f208C97d0DbdbE702431b22745377'
 
 export default function Home() {
   return (
