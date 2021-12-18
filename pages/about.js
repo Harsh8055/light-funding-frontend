@@ -113,7 +113,9 @@ export default function About() {
 				</div>
 				</div>
 			</section>
-
+          <h1 className="xl:text-4xl text-3xl text-center my-20 text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto"> Demonstration video </h1>
+			<div className="mx-80 px-72 my-20"><iframe width="700" height="400" src="https://www.youtube.com/embed/LMqrUIjJbiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
 			<FAQ></FAQ>
 			<Footer></Footer>
 
