@@ -21,8 +21,9 @@ export default function Project() {
 	let [isOpen, setIsOpen] = useState(false);
 	const router = useRouter()
   	const { id } = router.query
-	const [account, setAccount] = useState("")
+	const [account, setAccount] = useState("");
 	const [ html , setHtml] = useState("");
+	const [ reqButtonShow, setReqButtonShow ] = useState(false);
 	const [project, setProject] = useState([]);
 
 	const [requests, setRequests] = useState([]);
@@ -56,6 +57,13 @@ export default function Project() {
 			console.log(getProject);
 
 			await myContribution(id)
+			if (getProject.creator.toLowerCase() == account[0].toLowerCase() ) {
+				setReqButtonShow(true);
+				// console.log(reqButtonShow);
+
+				
+			}
+		
 
 
 		}
@@ -356,7 +364,7 @@ export default function Project() {
 					<a  className=' text-black px-3 py-2 text-xl font-medium mr-12 '> Balance - {(Number(project.currentBalance)/1000000000000000000).toFixed(5)} </a>
 
 
-					{<a onClick={() => createRequestButtonHandler() } className='bg-gray-900 text-white px-3 py-2 rounded-md text-base font-normal cursor-pointer hover:text-white mr-12 '> Create Withdrawal Request</a>}
+					{reqButtonShow== true &&  <a onClick={() => createRequestButtonHandler() } className='bg-gray-900 text-white px-3 py-2 rounded-md text-base font-normal cursor-pointer hover:text-white mr-12 '> Create Withdrawal Request</a>}
 					<div className="grid grid-cols-3 grid-rows-2 gap-10 m-10">
 
 
