@@ -4,15 +4,16 @@ import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 
 const images = [
+	{"name": "Harsh Singh", "image": "https://pbs.twimg.com/profile_images/1454368597204156421/kapadtuB_400x400.jpg", "role": "Smart Contract / Frontend", "desc": "Through light, we are making sure that your hard earned money that you contribute with is spent wisely by the fund raiser and not misused in any way. We are also incentivising contributors by rewarding them with NFTs", "github": "https://github.com/Harsh8055git", "twitter": "https://twitter.com/harsh_eth"},
 	{"name": "Satyam Kulkarni", "image": "https://pbs.twimg.com/profile_images/1462059525154885640/mSbb33zs_400x400.jpg", "role": "Frontend", "desc": "Crowdfunding using previous tech was flawed, trusting middleman is not a good choice, stakes are high here, so using tech like blockchain can solve this problem and we are doing it!", "github": "https://github.com/sk1122", "twitter": "https://twitter.com/sk1122_"},
-	{"name": "Harsh Singh", "image": "https://pbs.twimg.com/profile_images/1454368597204156421/kapadtuB_400x400.jpg", "role": "Smart Contract / Frontend", "desc": "through light, we are making sure that you hard earned money that you use to contribute is spent wisely by the fund raiser and not misused ", "github": "https://github.com/Harsh8055git", "twitter": "https://twitter.com/harsh_eth"},
-	{"name": "Harshal Masure", "image": "https://pbs.twimg.com/profile_images/1472049520896720896/wPwXaUj9_400x400.jpg", "role": "", "desc": "It was fun helping build light", "github": "", "twitter": ""},
-	{"name": "Rahul", "image": "", "role": "Frontend", "desc": "Light rocks, while middlemens shock", "github": "https://github.com/glitch-afk", "twitter": "https://twitter.com/v_3_n0m"}
+	{"name": "Harshal Masure", "image": "https://pbs.twimg.com/profile_images/1472049520896720896/wPwXaUj9_400x400.jpg", "role": "Frontend", "desc": "It was fun helping build light", "github": "", "twitter": ""},
+	{"name": "Rahul", "image": "https://avatars.githubusercontent.com/u/94465240?v=4", "role": "Frontend/UI ", "desc": "Light rocks, while middlemens shock", "github": "https://github.com/glitch-afk", "twitter": "https://twitter.com/v_3_n0m"},
+	{"name": "Bhakti Ghude", "image": "https://avatars.githubusercontent.com/u/76544741?v=4", "role": "Frontend", "desc": "Light rocks, while middlemens shock", "github": "https://github.com/Bhakti087", "twitter": "https://twitter.com/bhaktighude2"}
 ]
 
 export default function Team() {
-	return (
-		<>
+	return ( <div className="bg">
+		
 			<Head>
 				<title>Team - Light</title>
 			</Head>
@@ -24,12 +25,12 @@ export default function Team() {
 						<h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">The Talented People Behind the Scenes of the Organization</h1>
 					</div>
 				</div>
-				<div className="w-full bg-gray-100 px-10 pt-10">
+				<div className="w-full glass px-10 pt-10">
 					<div className="container mx-auto">
-						<div className="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
+						<div className="lg:flex  md:flex sm:flex items- xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
 							{images.map(value => (
-								<div className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-								<div className="rounded overflow-hidden shadow-md bg-white">
+								<div className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative   mb-32 px-2 sm:mb-24 xl:max-w-sm lg:w-2/5">
+								<div className="rounded overflow-hidden shadow-md pt-24 glass rounded  bg-white">
 									<div className="absolute -mt-20 w-full flex justify-center">
 										<div className="h-32 w-32">
 											<img src={value.image} className="rounded-full object-cover h-full w-full shadow-md" />
@@ -64,6 +65,7 @@ export default function Team() {
 				</div>
 			</div>
 			<Footer />
-		</>
+	
+		</div>
 	)
 }
