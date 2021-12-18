@@ -3,8 +3,6 @@ import Image from "next/image"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 
-import satyam from "../images/satyam.jpg"
-
 const images = [
 	{"name": "Satyam Kulkarni", "image": "https://pbs.twimg.com/profile_images/1462059525154885640/mSbb33zs_400x400.jpg", "role": "Frontend", "desc": "Crowdfunding using previous tech was flawed, trusting middleman is not a good choice, stakes are high here, so using tech like blockchain can solve this problem and we are doing it!", "github": "https://github.com/sk1122", "twitter": "https://twitter.com/sk1122_"},
 	{"name": "Harsh Singh", "image": "https://pbs.twimg.com/profile_images/1454368597204156421/kapadtuB_400x400.jpg", "role": "Smart Contract / Frontend", "desc": "", "github": "", "twitter": ""},
