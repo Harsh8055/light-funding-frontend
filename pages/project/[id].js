@@ -36,6 +36,9 @@ export default function Project() {
 	const [amountToWithdraw, setAmountToWithdraw] = useState(0);
 	const [description, setDescription ] = useState("");
 	const [receiptent, setReceiptent] = useState("");
+	
+	const [isReadMore, setIsReadMore] = useState(false);
+	const [projectDescription, setProjectDescription] = useState("")
 
 	useEffect(() => {getProject(id)}, [id])
 	useEffect(() => {unixToDate()}, [project])
@@ -272,9 +275,12 @@ export default function Project() {
 						<div>
 							<h3 className="sr-only">Description</h3>
 
-							<div className="space-y-6 mt-5">
-								<p className="text-base text-ellipsis overflow-hidden" style={{ maxHeight:"96px", maxWidth:"460px" }}>{project.description}</p>
+							<div className="space-y-6 mt-5 mb-5">
+								<p className="text-base text-ellipsis overflow-hidden" style={{ maxHeight:"96px", maxWidth:"460px" }}>
+									{project.description}
+								</p>
 							</div>
+							<a onClick={() => {setIsReadMore(true)}} className='bg-gray-900 text-white px-3 py-2 rounded-md text-md font-medium hover:bg-gray-400 hover:text-black'>Read More</a>
 						</div>
 
 						<div className="mt-4">
@@ -443,6 +449,10 @@ export default function Project() {
 					<a onClick={() =>{ setIsOpen(false)
 					createRequest() } } className='bg-gray-900 text-white px-3 py-2 rounded-md text-xl font-medium hover:bg-gray-400 hover:text-black mr-12'> Create Withdrawal Request</a>
 				</form>
+			</MyModal>
+
+			<MyModal isOpen={isReadMore} setIsOpen={setIsReadMore} title={project.title}>
+				{project.description}
 			</MyModal>
 
 			<FAQ></FAQ>
