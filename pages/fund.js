@@ -10,7 +10,7 @@ import FAQ from '../components/faq'
 import Footer from '../components/footer'
 
 // const contractAddressRinkeby = "0x6E4EC75096C050Cda0467fD9DC0D35496538b019";
-const contractAddress = "0x6C9AE8B5FCAFBCaFb0404e259f72F6b143d4e69f"; // mumbai matic
+const contractAddress = "0xfA7637B96ed7e3580215504e55519feF0bC95e57"; // mumbai matic
 export default function Home() {
 	let [isOpen, setIsOpen] = useState(false)
 
