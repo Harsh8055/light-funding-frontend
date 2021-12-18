@@ -6,7 +6,7 @@ import Footer from "../components/footer"
 const images = [
 	{"name": "Harsh Singh", "image": "https://pbs.twimg.com/profile_images/1454368597204156421/kapadtuB_400x400.jpg", "role": "Smart Contract / Frontend", "desc": "Through light, we are making sure that your hard earned money that you contribute with is spent wisely by the fund raiser and not misused in any way. We are also incentivising contributors by rewarding them with NFTs", "github": "https://github.com/Harsh8055git", "twitter": "https://twitter.com/harsh_eth"},
 	{"name": "Satyam Kulkarni", "image": "https://pbs.twimg.com/profile_images/1462059525154885640/mSbb33zs_400x400.jpg", "role": "Frontend", "desc": "Crowdfunding using previous tech was flawed, trusting middleman is not a good choice, stakes are high here, so using tech like blockchain can solve this problem and we are doing it!", "github": "https://github.com/sk1122", "twitter": "https://twitter.com/sk1122_"},
-	{"name": "Harshal Masure", "image": "https://pbs.twimg.com/profile_images/1472049520896720896/wPwXaUj9_400x400.jpg", "role": "Frontend", "desc": "By Light  you will understand how middlemen are useless , having safe side and very  low stakes where funds cannot be missused.Previous technology needs some modern solution  👋.", "github": "", "twitter": ""},
+	{"name": "Harshal Masure", "image": "https://media.discordapp.net/attachments/896119261825749013/921781706879561808/IMG_20211128_145526.jpg?width=507&height=582", "role": "Frontend", "desc": "By Light  you will understand how middlemen are useless , having safe side and very  low stakes where funds cannot be missused.Previous technology needs some modern solution  👋.", "github": "", "twitter": ""},
 	{"name": "Rahul", "image": "https://avatars.githubusercontent.com/u/94465240?v=4", "role": "Frontend/UI ", "desc": "Light rocks, while middlemens shock", "github": "https://github.com/glitch-afk", "twitter": "https://twitter.com/v_3_n0m"},
 	{"name": "Bhakti Ghude", "image": "https://avatars.githubusercontent.com/u/76544741?v=4", "role": "Frontend", "desc": "Light rocks, while middlemens shock", "github": "https://github.com/Bhakti087", "twitter": "https://twitter.com/bhaktighude2"}
 ]
@@ -22,7 +22,7 @@ export default function Team() {
 				<div className="container flex justify-center mx-auto pt-16">
 					<div>
 						<p className="text-gray-500 text-lg text-center font-normal pb-3">BUILDING TEAM</p>
-						<h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">The Talented People Behind the Scenes of the Organization</h1>
+						<h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto"> People Behind the Scenes of the Organization</h1>
 					</div>
 				</div>
 				<div className="w-full glass px-10 pt-10">
