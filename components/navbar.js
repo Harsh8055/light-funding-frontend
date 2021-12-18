@@ -10,9 +10,9 @@ import useSWR from "swr"
 
 const navigation = [
   { name: 'About', href: 'about', current: true },
-  { name: 'Features', href: '#', current: false },
-  { name: 'Community', href: '#', current: false },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Fund Projects', href: 'fund', current: false },
+  { name: 'Start Project', href: 'start', current: false },
+  { name: 'Team', href: 'team', current: false },
 ]
 
 function classNames(...classes) {
@@ -113,7 +113,7 @@ export default function Navbar() {
 									>
 										<a 
 											className={classNames(
-											item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
+											item.current ? 'hover:bg-gray-700 hover:text-white' : 'text-black hover:bg-gray-700 hover:text-white',
 											'px-3 py-2 rounded-md text-sm font-medium'
 										)}>
 											{item.name}
