@@ -9,10 +9,10 @@ import { ethers, providers } from "ethers"
 import useSWR from "swr"
 
 const navigation = [
-  { name: 'About', href: 'about', current: true },
-  { name: 'Fund Projects', href: 'fund', current: false },
-  { name: 'Start Project', href: 'start', current: false },
-  { name: 'Team', href: 'team', current: false },
+  { name: 'About', href: '/about', current: true },
+  { name: 'Fund Projects', href: '/fund', current: false },
+  { name: 'Start Project', href: '/start', current: false },
+  { name: 'Team', href: '/team', current: false },
 ]
 
 function classNames(...classes) {
